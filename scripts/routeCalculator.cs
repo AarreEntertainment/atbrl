@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class routeCalculator : MonoBehaviour {
-	float findThreshold = 0.2f;
+	float findThreshold = 0.8f;
 	public GameObject collectible;
 	public GameObject looker;
 	public bool goingToSpawn;
@@ -119,7 +119,7 @@ public class routeCalculator : MonoBehaviour {
 			if (Vector3.Distance (transform.position, route [0].position) < 3) {
 				if (goingToSpawn) {
 					Instantiate (collectible).transform.position=transform.position;
-					findThreshold += 0.05f;
+					findThreshold -= 0.05f;
 					GetComponent<UnityEngine.AI.NavMeshAgent> ().speed += 0.1f;
 					goingToSpawn = false;
 				}
